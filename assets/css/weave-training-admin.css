@@ -1,0 +1,95 @@
+/**
+ * Weave Training Admin Styles
+ * Full-screen seamless iframe styling for WordPress admin
+ */
+
+/* Hide default WordPress admin content when showing training */
+body.weave-training-active #wpbody-content > *:not(#weave-training-container) {
+    display: none !important;
+}
+
+body.weave-training-active #wpbody-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Training container - full screen */
+#weave-training-container {
+    position: fixed;
+    top: 32px; /* Account for admin bar */
+    left: 160px; /* Account for admin menu */
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+/* Adjust for collapsed admin menu */
+body.folded #weave-training-container {
+    left: 36px;
+}
+
+/* Adjust for mobile admin bar and no side menu */
+@media screen and (max-width: 782px) {
+    #weave-training-container {
+        top: 46px;
+        left: 0; /* No side menu on mobile */
+    }
+}
+
+/* Loading indicator for full screen */
+#weave-training-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#weave-training-loading p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Hide loading when iframe is loaded */
+#weave-training-container.loaded #weave-training-loading {
+    display: none;
+}
+
+/* Training iframe - seamless full screen */
+#weave-training-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Loading animation */
+#weave-training-loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0073aa;
+    border-radius: 50%;
+    animation: weave-training-spin 1s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes weave-training-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 
