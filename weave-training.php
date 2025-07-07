@@ -149,7 +149,7 @@ function weave_training_add_admin_menu() {
         'edit_posts',                                // Capability
         WEAVE_TRAINING_MENU_SLUG,                   // Menu slug
         'weave_training_display_page',              // Callback function
-        'dashicons-video-alt3',                     // Icon
+        'dashicons-embed-video',                     // Icon
         3                                           // Position (after Dashboard)
     );
 }
