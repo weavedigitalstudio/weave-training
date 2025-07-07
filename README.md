@@ -1,4 +1,6 @@
-# Weave Training WordPress Plugin
+![GP Beaver Integration](https://weave-hk-github.b-cdn.net/weave/plugin-header.png)
+
+# Weave Training Plugin
 
 A simple WordPress plugin that adds a dedicated "Website Training" page to the WordPress admin area for our client specific training videos and notes. Bundled on every site by Weave Digital. Uses an iframe from our central training resources.
 
