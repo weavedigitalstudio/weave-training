@@ -4,7 +4,7 @@ A simple WordPress plugin that adds a dedicated "Website Training" page to the W
 
 ## Description
 
-The Weave Website Training plugin provides easy access to customised training materials directly from the WordPress admin dashboard. It's designed for internal use by Weave Digital agency and deployed across client sites to provide seamless access to training content.
+The Weave Website Training plugin provides easy access to customised training materials directly from the WordPress admin dashboard. It's designed for internal use by Weave Digital Studio and HumanKind Funeral Websites and deployed across client sites to provide seamless access to training content.
 
 ## Features
 
@@ -32,7 +32,6 @@ The Weave Website Training plugin provides easy access to customised training ma
    ```php
    define('WEAVE_TRAINING_URL', 'https://your-training-site.com/client-specific-page');
    ```
-   - If not configured, the plugin will default to `https://training.weave.digital`
 
 ## Configuration
 
@@ -41,32 +40,21 @@ The Weave Website Training plugin provides easy access to customised training ma
 To set a client-specific training URL, add the following line to your `wp-config.php` file:
 
 ```php
-define('WEAVE_TRAINING_URL', 'https://training.weave.digital/your-client-name/');
+define('WEAVE_TRAINING_URL', 'https://your-training-site.com/your-client-name/');
 ```
 
-**Example configurations:**
-```php
-// For Selwyn House School
-define('WEAVE_TRAINING_URL', 'https://training.weave.digital/selwyn-house/');
-
-// For another client
-define('WEAVE_TRAINING_URL', 'https://training.weave.digital/client-name/');
-```
 
 ### Default Behaviour
 
-If `WEAVE_TRAINING_URL` is not defined, the plugin will display the default training portal at `https://training.weave.digital`.
+If `WEAVE_TRAINING_URL` is not defined, the plugin will display the default weave logo training portal at `https://training.weave.digital`.
 
 ### GitHub Updates (Public Repository)
 
-The plugin includes automatic update checking from GitHub releases. Since this is a public repository, no configuration is required - updates work automatically.
+The plugin includes automatic update checking from GitHub releases. 
 
 **Features:**
 - Automatic update checking from GitHub releases
 - Caches update checks for 4 hours (performance optimisation)
-- Shows plugin icons in the WordPress admin
-- Provides detailed plugin information in update dialogs
-- Handles errors gracefully with fallback caching
 
 The updater checks for new releases every 4 hours and will show update notifications in the WordPress admin when new versions are available.
 
@@ -80,6 +68,7 @@ The updater checks for new releases every 4 hours and will show update notificat
 2. **User Permissions**
    - Only users with `edit_posts` capability can access training (Editor role and above)
    - Contributors, Subscribers, and other lower-level users won't see the menu
+   - Make sure clients have their account setup
 
 3. **Mobile/Responsive**
    - Training content automatically adjusts to screen size
@@ -131,84 +120,18 @@ weave-training/
 - Check if training site is accessible from your server
 - Review browser console for any error messages
 
-**"Zen Can't Open This Page" or CSP errors:**
+**"Can't Open This Page" or CSP errors:**
 - This is a Content Security Policy (CSP) restriction from the training site
 - For **local development**, add your local domain to the training site's CSP `frame-ancestors` directive
-- Common local domains to add: `localhost`, `*.local`, `*.test`, `dashboard-training.test`
+- Common local domains to add: `localhost`, `*.local`, `*.test`, `customersite.url`
 - For **production sites**, ensure the live domain is added to the training site's CSP
-- Contact your training site administrator to add your domain to the allowed frame ancestors
+- Make sure you add your domain to the allowed frame ancestors
 
 **Iframe display issues:**
 - The plugin creates a seamless full-screen experience with no borders or headers
 - If you see borders or headers, check if other plugins are interfering with admin styles
 - Try disabling other admin-related plugins temporarily
 
-### Debug Mode
-
-To enable debug logging, add the following to your `wp-config.php`:
-
-```php
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-```
-
-Plugin debug messages will appear in `/wp-content/debug.log`.
-
-## Development
-
-### For Developers
-
-The plugin follows WordPress coding standards and includes:
-
-- Proper hook usage and action/filter implementation
-- Internationalisation support (translation-ready)
-- Responsive CSS with WordPress admin theme compatibility
-- JavaScript error handling and iframe communication
-- Comprehensive security measures
-
-### Customisation
-
-To customise the plugin:
-
-1. **Styling**: Modify `assets/css/weave-training-admin.css`
-2. **Behaviour**: Edit `assets/js/weave-training-admin.js`
-3. **Menu Position**: Change the position parameter in `add_menu_page()`
-4. **Capabilities**: Modify capability checks in main plugin file
-
-### Releasing New Versions
-
-The plugin includes automated release building via GitHub Actions:
-
-1. **Create a new tag**: `git tag v1.0.1 && git push origin v1.0.1`
-2. **GitHub Actions automatically**:
-   - Builds a clean plugin zip file
-   - Creates a GitHub release
-   - Attaches the zip file to the release
-3. **WordPress sites automatically**:
-   - Check for updates every 4 hours
-   - Show update notifications
-   - Allow one-click updates
-
-**Tag format**: Use semantic versioning (e.g., `v1.0.1`, `v1.1.0`, `v2.0.0`)
-
-**What gets included in releases**:
-- Main plugin file and all PHP files
-- Assets (CSS, JS, images)
-- Translation files (if any)
-- Documentation (README.md excluded from zip)
-
-**What gets excluded**:
-- Development files (`.mdc`, `.cursorrules`, `prd-*.md`)
-- GitHub workflows and git files
-- Build artifacts and temporary files
-- Old plugin references
-
-## Support
-
-For support or questions:
-- **Email**: support@weave.co.nz
-- **Issues**: Report bugs or request features via your preferred method
-- **Documentation**: Refer to WordPress Codex for general WordPress development
 
 ## License
 
@@ -223,7 +146,7 @@ This plugin is licensed under the GPL v2 or later.
 - WordPress admin integration
 - Security measures and capability checks
 - Configuration via WordPress constants
-- GitHub automatic update checker (public repository)
+- GitHub automatic update checker 
 - Full-screen seamless iframe display with admin menu positioning
 - Plugin icons and enhanced update UI
 - Robust error handling and caching system
