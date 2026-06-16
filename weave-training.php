@@ -3,7 +3,7 @@
  * Plugin Name: Weave Website Training
  * Plugin URI: https://github.com/weavedigitalstudio/weave-training
  * Description: A simple WordPress plugin that adds a dedicated "Website Training" page to the WordPress admin area for our client specific training videos and notes. Bundled on every site by Weave Digital. Uses an iframe from our central training resources.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Weave Digital, Gareth Bissland
  * Author URI: https://weave.co.nz
  * License: GPL v2 or later
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('WEAVE_TRAINING_VERSION', '1.0.0');
+define('WEAVE_TRAINING_VERSION', '1.0.1');
 define('WEAVE_TRAINING_PLUGIN_NAME', 'Weave Training');
 define('WEAVE_TRAINING_PLUGIN_SLUG', 'weave-training');
 define('WEAVE_TRAINING_PLUGIN_DIR', plugin_dir_path(__FILE__));
